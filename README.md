@@ -22,7 +22,7 @@
 
 ### 필수 요건
 
-- [결과화면](https://next-netflix-16th.vercel.app/)의 렌딩 페이지와 메인 페이지를 구현합니다.
+- [결과화면](https://next-netflix-16th.vercel.app/)의 렌딩 페이지(로고 애니메이션)와 메인 페이지를 구현합니다.
 - [Figma](https://www.figma.com/file/UqdXDovIczt1Gl0IjknHQf/Netflix?node-id=0%3A1)의 디자인을 그대로 구현합니다.
 - SSR(Server Side Rendering)을 적용해서 구현합니다.
 - Open api를 사용해서 데이터 패칭을 진행합니다. (ex. [themoviedb API](https://developers.themoviedb.org/3/getting-started/introduction))
