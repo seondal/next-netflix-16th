@@ -12,6 +12,7 @@ export default function FooterItem({alt,name,selected}:IFooter){
         src = '/img/Footer/'+name+'-2.png'
     }
 
+
     return (
         <Container>
             <StyledButton select = {selected}>

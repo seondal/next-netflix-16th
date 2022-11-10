@@ -7,18 +7,28 @@ export default function Footer(){
     const router = useRouter();
     const footerInfo = FooterInfo;
 
+    const handleClick = (name:string) => {
+        if(name === 'Home'){
+            router.push('/home');
+        }else if (name === 'Search'){
+            router.push('/search');
+        }
+    }
+
     return(
         <Container>
             {
                 footerInfo.map((f)=>{
                     const select = router.pathname === '/'+f.alt;
                     return (
-                        <FooterItem
-                            key={f.id}
-                            alt={f.alt}
-                            name={f.name}
-                            selected = {select}
-                        />
+                        <ItemButton key={f.id} onClick={() => handleClick(f.name)}>
+                            <FooterItem
+                                key={f.id}
+                                alt={f.alt}
+                                name={f.name}
+                                selected = {select}
+                            />
+                        </ItemButton>
                     )
                 })
             }
@@ -40,4 +50,7 @@ const Container = styled.div`
 
     display: flex;
     justify-content: space-evenly;
+`
+const ItemButton = styled.div`
+
 `
