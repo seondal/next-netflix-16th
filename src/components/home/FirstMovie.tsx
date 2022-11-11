@@ -10,40 +10,39 @@ export default function FirstMovie({movies}:any){
 
     return(
         <Container>
-        firstmovie
-        <ImageMovie
-            src={"http://image.tmdb.org/t/p/w500"+movies[rand_0_len].backdrop_path}
-        />
-        <MiddleItem>
-            <Item>
-                <Image
-                    src={MyList}
-                    alt={"list"}
-                    width={20}
-                    height={20}
-                />
-                <br/>
-                My List
-            </Item>
-            <Item>
-                <Image
-                    src={Play}
-                    alt={"Play"}
-                    width={110.62}
-                    height={45}
-                />
-            </Item>
-            <Item>
-                <Image
-                    src={Info}
-                    alt={"Info"}
-                    width={20}
-                    height={20}
-                />
-                <br/>
-                Info
-            </Item>
-        </MiddleItem>
+            <ImageMovie
+                src={"http://image.tmdb.org/t/p/w500"+movies[rand_0_len].backdrop_path}
+            />
+            <MiddleItem>
+                <Item>
+                    <Image
+                        src={MyList}
+                        alt={"list"}
+                        width={20}
+                        height={20}
+                    />
+                    <br/>
+                    My List
+                </Item>
+                <Item>
+                    <Image
+                        src={Play}
+                        alt={"Play"}
+                        width={110.62}
+                        height={45}
+                    />
+                </Item>
+                <Item>
+                    <Image
+                        src={Info}
+                        alt={"Info"}
+                        width={20}
+                        height={20}
+                    />
+                    <br/>
+                    Info
+                </Item>
+            </MiddleItem>
         </Container>
     )
 }
@@ -51,6 +50,7 @@ export default function FirstMovie({movies}:any){
 const Container = styled.div`
     display: flex;
     flex-direction: column;
+    position: relative;
 `
 
 const MiddleItem = styled.div`
@@ -67,6 +67,5 @@ const ImageMovie = styled.img`
     object-fit: cover;
     height: 415px;
     margin-bottom: 13px;
-    margin-top: 415px;
 
 `

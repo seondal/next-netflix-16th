@@ -46,7 +46,7 @@ const Container = styled.div`
 
     bottom: 0;
     
-    width: 375px;
+    width: 377px;
     height: 48px;
 
     display: flex;

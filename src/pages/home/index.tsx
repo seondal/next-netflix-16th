@@ -82,6 +82,6 @@ const Container = styled.div`
     display: flex;
     flex-direction: column; 
     width: 375px;
-    // overflow:visible
-    // margin-top: 300px;
+    justify-contents: flex-start;
+    position: relative;
 `

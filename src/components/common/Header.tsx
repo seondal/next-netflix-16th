@@ -1,13 +1,46 @@
 import styled from 'styled-components';
+import Image from 'next/image';
+const ItemsList = [
+    {id: 0, info: '/img/Netflix_Symbol.png'},
+    {id: 1, info: 'TV Shows'},
+    {id: 2, info: 'Movies'},
+    {id: 3, info: 'My List'}
+];
 
 export default function Header(){
     return(
         <Container>
-            header
+            {
+                ItemsList.map((i) => (
+                    i.id === 0 ?
+                    <StyledImage
+                        key={i.id}
+                        src={i.info}
+                        alt={'Logo'}
+                    />
+                    :
+                    <Item key={i.id}>
+                        {i.info}
+                    </Item>
+                ))
+            }
         </Container>
     )
 }
 
 const Container = styled.div`
-    margin-top: 415px;
+    display: flex;
+    justify-content: space-evenly;
+    background: transparent;
+    position: relative;
+    align-items: center;
+`
+
+const Item = styled.div`
+
+`
+
+const StyledImage = styled.img`
+    object-fit: cover;
+    width: 50px;
 `
