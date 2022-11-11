@@ -2,23 +2,25 @@ import Footer from "../../components/common/Footer"
 import styled from 'styled-components'
 import axios from 'axios';
 import { IData } from "../../interfaces/interface";
-import { getNowPlaying } from "../../api/Movies";
-import { use } from "react";
-import { useNowPlaying } from "../../hooks/api/movie";
+import { getNowPlaying, getTopRated } from "../../api/Movies";
+import { useNowPlaying, useTopRated } from "../../hooks/api/movie";
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import MovieList from '../../components/home/MovieList'
 import TextInfo from "../../components/home/TextInfo";
 
 export default function Home(){
 
-    const { data : nowPlayingMovies, isLoading } = useNowPlaying();
+    const { data : nowPlayingMovies } = useNowPlaying();
 
-    if (isLoading) return null;
+    const { data : topRatedMovies} = useTopRated();
+
 
     return (
         <Container>
-            <TextInfo name={"nowPlaying"}/>
+            <TextInfo name={"Now Playing"}/>
             <MovieList movies={nowPlayingMovies.results}/>
+            <TextInfo name={"Top Rated"}/>
+            <MovieList movies={topRatedMovies.results}/>
             <Footer/>
         </Container>
     )
@@ -29,7 +31,9 @@ export const getServerSideProps = async () => {
     const queryClient = new QueryClient()
 
     // prefetch data on the server
-    await queryClient.fetchQuery(['NowPlaying'], () => getNowPlaying())
+    await queryClient.fetchQuery(['NowPlaying'], () => getNowPlaying());
+
+    await queryClient.fetchQuery(['TopRated'], ()=> getTopRated());
 
     return {
         props: {

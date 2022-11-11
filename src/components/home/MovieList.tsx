@@ -2,20 +2,18 @@ import styled from 'styled-components';
 import Image from 'next/image'
 
 export default function MovieList({movies}:any){
-    console.log('movieList:',movies);
     return(
         <Container>
             {
                 movies.map((m:any) => (
-                    <>
                     <ImageMovie
+                        key = {m.id}
                         src={"http://image.tmdb.org/t/p/w500"+m.backdrop_path}
                         alt = {m.title}
 
                         width={30}
                         height={30}
                     />
-                    </>
                 ))
             }
         </Container>
