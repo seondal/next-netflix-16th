@@ -13,7 +13,6 @@ export default function Home() {
     const timer = setTimeout(() => {
       router.push("/home");
     }, 3100);
-
     return () => {
       clearTimeout(timer);
     };
