@@ -8,3 +8,7 @@ export const useNowPlaying = () => {
 export const useTopRated = () => {
     return useQuery(['TopRated'], () => api.getTopRated());
 }
+
+export const usePopular = () => {
+    return useQuery(['Popular'], () => api.getPopular());
+}

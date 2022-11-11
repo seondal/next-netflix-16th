@@ -38,6 +38,7 @@ export default function Footer(){
 
 const Container = styled.div`
     position : fixed;
+    background: black;
 
     // 중앙 정렬
     left: 50%;

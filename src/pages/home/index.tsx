@@ -2,8 +2,8 @@ import Footer from "../../components/common/Footer"
 import styled from 'styled-components'
 import axios from 'axios';
 import { IData } from "../../interfaces/interface";
-import { getNowPlaying, getTopRated } from "../../api/Movies";
-import { useNowPlaying, useTopRated } from "../../hooks/api/movie";
+import { getNowPlaying, getTopRated, getPopular } from "../../api/Movies";
+import { useNowPlaying, useTopRated, usePopular } from "../../hooks/api/movie";
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import MovieList from '../../components/home/MovieList'
 import TextInfo from "../../components/home/TextInfo";
@@ -14,6 +14,8 @@ export default function Home(){
 
     const { data : topRatedMovies} = useTopRated();
 
+    const { data : popularMovies } = usePopular();
+
 
     return (
         <Container>
@@ -21,6 +23,8 @@ export default function Home(){
             <MovieList movies={nowPlayingMovies.results}/>
             <TextInfo name={"Top Rated"}/>
             <MovieList movies={topRatedMovies.results}/>
+            <TextInfo name={"Popular"}/>
+            <MovieList movies={popularMovies.results}/>
             <Footer/>
         </Container>
     )
@@ -34,6 +38,8 @@ export const getServerSideProps = async () => {
     await queryClient.fetchQuery(['NowPlaying'], () => getNowPlaying());
 
     await queryClient.fetchQuery(['TopRated'], ()=> getTopRated());
+
+    await queryClient.fetchQuery(['Popular'], () => getPopular());
 
     return {
         props: {
