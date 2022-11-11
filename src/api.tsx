@@ -1,5 +1,4 @@
-import { API_KEY } from "./assets/config";
-
+const API_KEY = process.env.API_KEY;
 const BASE_URL = `https://api.themoviedb.org/3/movie/`;
 
 export const getNowPlaying = `${BASE_URL}/now_playing?api_key=${API_KEY}&language=en-US&page=1`;
