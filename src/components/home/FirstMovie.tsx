@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Play from '../../../public/img/Header/Play.png'
 import Info from '../../../public/img/Header/Info.png'
 import MyList from '../../../public/img/Header/MyList.png'
+import Header from '../common/Header';
 import { IData } from '../../interfaces/interface';
 
 export default function FirstMovie({movies}:any){
@@ -11,9 +12,9 @@ export default function FirstMovie({movies}:any){
 
     return(
         <Container>
-            <ImageMovie
-                src={"http://image.tmdb.org/t/p/w500"+movies[rand_0_len].backdrop_path}
-            />
+            <ImageBox path = {"http://image.tmdb.org/t/p/w500"+movies[rand_0_len].backdrop_path}>
+                <Header/>
+            </ImageBox>
             <MiddleItem>
                 <Item>
                     <Image
@@ -64,9 +65,17 @@ const Item = styled.div`
     align-items: center;
     text-align: center;
 `
-const ImageMovie = styled.img`
+interface Props{
+    path: string
+}
+
+const ImageBox = styled.div<Props>`
     object-fit: cover;
     height: 415px;
+    width: 375px;
     margin-bottom: 13px;
+    background-size: cover;
+    background-position: center;
+    background-image : ${props => `linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 87.26%, #000000 100%), url(${props.path})`}
 
 `
