@@ -15,3 +15,8 @@ export const getPopular = async () => {
     const {data} = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
     return data;
 }
+
+export const getUpComing = async () => {
+    const {data} = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`);
+    return data;
+}

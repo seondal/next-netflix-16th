@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { appendFile } from 'fs';
 import * as api from '../../api/Movies';
 
 export const useNowPlaying = () => {
@@ -11,4 +12,8 @@ export const useTopRated = () => {
 
 export const usePopular = () => {
     return useQuery(['Popular'], () => api.getPopular());
+}
+
+export const useUpComing = () => {
+    return useQuery(['UpComing'], () => api.getUpComing());
 }

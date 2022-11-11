@@ -2,11 +2,12 @@ import Footer from "../../components/common/Footer"
 import styled from 'styled-components'
 import axios from 'axios';
 import { IData } from "../../interfaces/interface";
-import { getNowPlaying, getTopRated, getPopular } from "../../api/Movies";
-import { useNowPlaying, useTopRated, usePopular } from "../../hooks/api/movie";
+import { getNowPlaying, getTopRated, getPopular, getUpComing } from "../../api/Movies";
+import { useNowPlaying, useTopRated, usePopular, useUpComing } from "../../hooks/api/movie";
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import MovieList from '../../components/home/MovieList'
 import TextInfo from "../../components/home/TextInfo";
+import Header from "../../components/common/Header";
 
 export default function Home(){
 
@@ -16,15 +17,20 @@ export default function Home(){
 
     const { data : popularMovies } = usePopular();
 
+    const { data : upComingMovies } = useUpComing();
+
 
     return (
         <Container>
-            <TextInfo name={"Now Playing"}/>
-            <MovieList movies={nowPlayingMovies.results}/>
-            <TextInfo name={"Top Rated"}/>
-            <MovieList movies={topRatedMovies.results}/>
-            <TextInfo name={"Popular"}/>
-            <MovieList movies={popularMovies.results}/>
+            <Header/>
+            <TextInfo name={"Previews"} isPreview={true}/>
+            <MovieList movies={upComingMovies.results} isPreview={true}/>
+            <TextInfo name={"Now Playing"} isPreview={false}/>
+            <MovieList movies={nowPlayingMovies.results} isPreview={false}/>
+            <TextInfo name={"Top Rated"} isPreview={false}/>
+            <MovieList movies={topRatedMovies.results} isPreview={false}/>
+            <TextInfo name={"Popular"} isPreview={false}/>
+            <MovieList movies={popularMovies.results} isPreview={false}/>
             <Footer/>
         </Container>
     )
@@ -40,6 +46,8 @@ export const getServerSideProps = async () => {
     await queryClient.fetchQuery(['TopRated'], ()=> getTopRated());
 
     await queryClient.fetchQuery(['Popular'], () => getPopular());
+
+    await queryClient.fetchQuery(['UpComing'], () => getUpComing());
 
     return {
         props: {
@@ -71,7 +79,7 @@ export const getServerSideProps = async () => {
 const Container = styled.div`
     display: flex;
     flex-direction: column; 
-    justify-content: center;
-    align-items: center;
     width: 375px;
+    // overflow:visible
+    // margin-top: 300px;
 `
