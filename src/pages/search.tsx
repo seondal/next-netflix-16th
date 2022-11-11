@@ -4,20 +4,17 @@ import { getTopSearches } from "../api/Movies";
 import { IMovieInfo } from "../interfaces/interface";
 import Link from "next/link";
 
-export default function Search() {
-  const [movies, setMovies] = useState<IMovieInfo[]>([]);
-  useEffect(() => {
-    (async () => {
-      const { results } = await (await fetch(getTopSearches)).json();
-      setMovies(results);
-    })();
-  }, []);
+interface SearchProps {
+  topSearchesMovies: IMovieInfo[];
+}
+
+export default function Search({ topSearchesMovies }: SearchProps) {
   return (
     <>
       <input placeholder="Search for a show, movie, genre, e.t.c." />
       <h2>Top Searches</h2>
-      {!movies && <h4>Loading...</h4>}
-      {movies?.map((movie) => (
+      {!topSearchesMovies && <h4>Loading...</h4>}
+      {topSearchesMovies?.map((movie) => (
         <Link
           href={{
             pathname: `/movies/${movie.id}`,
@@ -42,4 +39,15 @@ export default function Search() {
       <Footer />
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const topSearchesMoviesResponse = await (await fetch(getTopSearches)).json();
+  const topSearchesMovies = topSearchesMoviesResponse.results;
+
+  return {
+    props: {
+      topSearchesMovies,
+    },
+  };
 }
