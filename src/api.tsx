@@ -1,4 +1,3 @@
-import axios from "axios";
 import { API_KEY } from "./assets/config";
 
 const BASE_URL = `https://api.themoviedb.org/3/movie/`;

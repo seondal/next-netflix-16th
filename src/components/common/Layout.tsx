@@ -9,8 +9,15 @@ export default function Layout({ children }: LayoutProps) {
   const router = useRouter();
   return (
     <>
-      {children}
-      {router.pathname !== "/" && <Footer />}
+      <div className="body">
+        {children}
+        {router.pathname !== "/" && <Footer />}
+      </div>
+      <style jsx>{`
+        .body {
+          height: 100vh;
+        }
+      `}</style>
     </>
   );
 }

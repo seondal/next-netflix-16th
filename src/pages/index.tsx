@@ -1,6 +1,4 @@
-import styled from "styled-components";
 import { useRouter } from "next/router";
-import Head from "next/head";
 import Image from "next/image";
 import Logo from "../../public/img/netflix_5.gif";
 import styles from "../../styles/Home.module.css";

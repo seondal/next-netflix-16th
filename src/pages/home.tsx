@@ -1,5 +1,3 @@
-import Footer from "../components/common/Footer";
-import styled from "styled-components";
 import { IMovieInfo } from "../interface";
 import { getNowPlaying, getTopRated, getPopular, getUpComing } from "../api";
 import MovieList from "../components/home/MovieList";
@@ -12,6 +10,7 @@ interface HomeProps {
   popularMovies: IMovieInfo[];
   upComingMovies: IMovieInfo[];
 }
+
 export default function Home({
   nowPlayingMovies,
   topRatedMovies,
@@ -19,8 +18,8 @@ export default function Home({
   upComingMovies,
 }: HomeProps) {
   return (
-    <Body>
-      <Container>
+    <>
+      <div className="container">
         <FirstMovie movies={upComingMovies} />
         <TextInfo name={"Previews"} isPreview={true} />
         <MovieList movies={upComingMovies} isPreview={true} />
@@ -30,8 +29,17 @@ export default function Home({
         <MovieList movies={topRatedMovies} isPreview={false} />
         <TextInfo name={"Popular"} isPreview={false} />
         <MovieList movies={popularMovies} isPreview={false} />
-      </Container>
-    </Body>
+      </div>
+      <style jsx>{`
+        .container {
+          display: flex;
+          flex-direction: column;
+          width: 375px;
+          justify-contents: flex-start;
+          position: relative;
+        }
+      `}</style>
+    </>
   );
 }
 
@@ -56,14 +64,3 @@ export const getServerSideProps = async () => {
     },
   };
 };
-
-const Body = styled.div`
-  height: 100vh;
-`;
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 375px;
-  justify-contents: flex-start;
-  position: relative;
-`;

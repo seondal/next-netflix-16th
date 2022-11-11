@@ -1,8 +1,4 @@
 import { IFooter } from "../../interface";
-import Image from "next/image";
-import styled from "styled-components";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 
 export default function FooterItem({ alt, name, selected }: IFooter) {
   let src = "";
@@ -13,29 +9,32 @@ export default function FooterItem({ alt, name, selected }: IFooter) {
   }
 
   return (
-    <Container>
-      <StyledButton select={selected}>
-        <Image alt={alt} src={src} width={25} height={25} />
-        <StyledFont>{name}</StyledFont>
-      </StyledButton>
-    </Container>
+    <>
+      <div className="container">
+        <button className={selected ? "selected" : ""}>
+          <img alt={alt} src={src} width={25} height={25} />
+          <div className="font">{name}</div>
+        </button>
+      </div>
+      <style jsx>{`
+        .container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        button {
+          border: 0;
+          outline: 0;
+          background: black;
+          color: #8c8787;
+        }
+        .selected {
+          color: "white";
+        }
+        .font {
+          font-size: 8.2px;
+        }
+      `}</style>
+    </>
   );
 }
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const StyledFont = styled.div`
-  font-size: 8.2px;
-`;
-
-const StyledButton = styled.button<{ select: boolean }>`
-  border: 0;
-  outline: 0;
-  background: black;
-  color: #8c8787;
-  color: ${({ select }) => (select ? "white" : "#8C8787")};
-`;

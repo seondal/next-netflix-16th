@@ -1,49 +1,46 @@
-import styled, { css } from 'styled-components';
-import Image from 'next/image'
+import { IMovieInfo } from "../../interface";
 
-export default function MovieList({movies, isPreview}:any){
-    return(
-        <Container>
-            {
-                movies.map((m:any) => (
-                    <ImageMovie
-                        isCircle = {isPreview}
-                        key = {m.id}
-                        src={"http://image.tmdb.org/t/p/w500"+m.backdrop_path}
-                        alt = {m.title}
-                    />
-                ))
-            }
-        </Container>
-    )
+interface MovieListProps {
+  movies: IMovieInfo[];
+  isPreview: boolean;
 }
 
-const Container = styled.div`
-    display: flex;
-    width: 375px;
-    overflow-y: auto;
-    &::-webkit-scrollbar {
-        display: none;
-    }
-`
-interface ImageProps {
-    isCircle: boolean;
+export default function MovieList({ movies, isPreview }: MovieListProps) {
+  return (
+    <div className="container">
+      {movies.map((m: any) => (
+        <>
+          <img
+            className={isPreview ? "isCircle" : ""}
+            key={m.id}
+            src={"http://image.tmdb.org/t/p/w500" + m.backdrop_path}
+            alt={m.title}
+          />
+        </>
+      ))}
+      <style jsx>{`
+        .container {
+          display: flex;
+          width: 375px;
+          overflow-y: auto;
+        }
+        .container::-webkit-scrollbar {
+          display: none;
+        }
+        img {
+          object-fit: cover;
+          width: 103px;
+          height: 161px;
+          margin-right: 7px;
+          margin-bottom: 52px;
+        }
+        .isCircle {
+          width: 102px;
+          height: 102px;
+          border-radius: 50%;
+          margin-bottom: 66px;
+        }
+      `}</style>
+    </div>
+  );
 }
-
-const ImageMovie = styled.img<ImageProps>`
-    object-fit: cover;
-    width: 103px;
-    height: 161px;
-    margin-right: 7px;
-    margin-bottom: 52px;
-
-    ${(props) =>
-        props.isCircle === true &&
-        css`
-            width: 102px;
-            height: 102px;
-            border-radius: 50%;
-            margin-bottom: 66px;
-    `};
-
-`
