@@ -4,7 +4,7 @@ import Play from '../../../public/img/Header/Play.png'
 import Info from '../../../public/img/Header/Info.png'
 import MyList from '../../../public/img/Header/MyList.png'
 import Header from '../common/Header';
-import { IData } from '../../interfaces/interface';
+import { IData } from '../../interface';
 
 export default function FirstMovie({movies}:any){
     const len_movies = movies.length;

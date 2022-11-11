@@ -1,15 +1,10 @@
-import Footer from "../../components/common/Footer";
+import Footer from "../components/common/Footer";
 import styled from "styled-components";
-import { IMovieInfo } from "../../interfaces/interface";
-import {
-  getNowPlaying,
-  getTopRated,
-  getPopular,
-  getUpComing,
-} from "../../api/Movies";
-import MovieList from "../../components/home/MovieList";
-import TextInfo from "../../components/home/TextInfo";
-import FirstMovie from "../../components/home/FirstMovie";
+import { IMovieInfo } from "../interface";
+import { getNowPlaying, getTopRated, getPopular, getUpComing } from "../api";
+import MovieList from "../components/home/MovieList";
+import TextInfo from "../components/home/TextInfo";
+import FirstMovie from "../components/home/FirstMovie";
 
 interface HomeProps {
   nowPlayingMovies: IMovieInfo[];
@@ -35,7 +30,6 @@ export default function Home({
         <MovieList movies={topRatedMovies} isPreview={false} />
         <TextInfo name={"Popular"} isPreview={false} />
         <MovieList movies={popularMovies} isPreview={false} />
-        <Footer />
       </Container>
     </Body>
   );

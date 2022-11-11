@@ -1,7 +1,7 @@
 import Footer from "../components/common/Footer";
 import { useState, useEffect } from "react";
-import { getTopSearches } from "../api/Movies";
-import { IMovieInfo } from "../interfaces/interface";
+import { getTopSearches } from "../api";
+import { IMovieInfo } from "../interface";
 import Link from "next/link";
 
 interface SearchProps {
@@ -36,7 +36,6 @@ export default function Search({ topSearchesMovies }: SearchProps) {
           </div>
         </Link>
       ))}
-      <Footer />
     </>
   );
 }
