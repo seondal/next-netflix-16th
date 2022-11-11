@@ -21,7 +21,11 @@ export default function Search() {
         <Link
           href={{
             pathname: `/movies/${movie.id}`,
-            query: { title: movie.original_title },
+            query: {
+              title: movie.original_title,
+              poster: movie.poster_path,
+              overview: movie.overview,
+            },
           }}
           as={`/movies/${movie.id}`}
           key={movie.id}
