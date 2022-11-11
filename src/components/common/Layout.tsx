@@ -9,13 +9,18 @@ export default function Layout({ children }: LayoutProps) {
   const router = useRouter();
   return (
     <>
-      <div className="body">
+      <div className="container">
         {children}
         {router.pathname !== "/" && <Footer />}
       </div>
       <style jsx>{`
-        .body {
+        .container {
           height: 100vh;
+          display: flex;
+          flex-direction: column;
+          width: 375px;
+          justify-contents: flex-start;
+          position: relative;
         }
       `}</style>
     </>

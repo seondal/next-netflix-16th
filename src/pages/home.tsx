@@ -19,7 +19,7 @@ export default function Home({
 }: HomeProps) {
   return (
     <>
-      <div className="container">
+      <div>
         <FirstMovie movies={upComingMovies} />
         <TextInfo name={"Previews"} isPreview={true} />
         <MovieList movies={upComingMovies} isPreview={true} />
@@ -30,15 +30,6 @@ export default function Home({
         <TextInfo name={"Popular"} isPreview={false} />
         <MovieList movies={popularMovies} isPreview={false} />
       </div>
-      <style jsx>{`
-        .container {
-          display: flex;
-          flex-direction: column;
-          width: 375px;
-          justify-contents: flex-start;
-          position: relative;
-        }
-      `}</style>
     </>
   );
 }

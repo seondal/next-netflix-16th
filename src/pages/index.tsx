@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Logo from "../../public/img/netflix_5.gif";
-import styles from "../../styles/Home.module.css";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -17,8 +16,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <Image src={Logo} alt="Logo of Netflix" width={500} />
+    <div>
+      <Image src={Logo} alt="Logo of Netflix" width={375} />
     </div>
   );
 }
