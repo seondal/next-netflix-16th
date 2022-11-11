@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { IMovieInfo } from "../../interface";
 
 interface MovieListProps {
@@ -9,14 +10,24 @@ export default function MovieList({ movies, isPreview }: MovieListProps) {
   return (
     <div className="container">
       {movies.map((m: any) => (
-        <>
+        <Link
+          href={{
+            pathname: `/movies/${m.id}`,
+            query: {
+              title: m.original_title,
+              poster: m.poster_path,
+              overview: m.overview,
+            },
+          }}
+          as={`/movies/${m.id}`}
+          key={m.id}
+        >
           <img
             className={isPreview ? "isCircle" : ""}
-            key={m.id}
             src={"http://image.tmdb.org/t/p/w500" + m.backdrop_path}
             alt={m.title}
           />
-        </>
+        </Link>
       ))}
       <style jsx>{`
         .container {

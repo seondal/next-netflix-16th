@@ -4,10 +4,6 @@ import Info from "../../../public/img/Header/Info.png";
 import MyList from "../../../public/img/Header/MyList.png";
 import Header from "../common/Header";
 
-interface Props {
-  path: string;
-}
-
 export default function FirstMovie({ movies }: any) {
   const len_movies = movies.length;
   const rand_0_len = Math.floor(Math.random() * len_movies);
