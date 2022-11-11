@@ -22,19 +22,21 @@ export default function Home(){
 
 
     return (
-        <Container>
-            <Header/>
-            <FirstMovie movies={upComingMovies.results}/>
-            <TextInfo name={"Previews"} isPreview={true}/>
-            <MovieList movies={upComingMovies.results} isPreview={true}/>
-            <TextInfo name={"Now Playing"} isPreview={false}/>
-            <MovieList movies={nowPlayingMovies.results} isPreview={false}/>
-            <TextInfo name={"Top Rated"} isPreview={false}/>
-            <MovieList movies={topRatedMovies.results} isPreview={false}/>
-            <TextInfo name={"Popular"} isPreview={false}/>
-            <MovieList movies={popularMovies.results} isPreview={false}/>
-            <Footer/>
-        </Container>
+        <Body>
+            <Container>
+                <Header/>
+                <FirstMovie movies={upComingMovies.results}/>
+                <TextInfo name={"Previews"} isPreview={true}/>
+                <MovieList movies={upComingMovies.results} isPreview={true}/>
+                <TextInfo name={"Now Playing"} isPreview={false}/>
+                <MovieList movies={nowPlayingMovies.results} isPreview={false}/>
+                <TextInfo name={"Top Rated"} isPreview={false}/>
+                <MovieList movies={topRatedMovies.results} isPreview={false}/>
+                <TextInfo name={"Popular"} isPreview={false}/>
+                <MovieList movies={popularMovies.results} isPreview={false}/>
+                <Footer/>
+            </Container>
+        </Body>
     )
 };
 
@@ -59,25 +61,9 @@ export const getServerSideProps = async () => {
     }
 }
 
-// next 13
-// export async function getData(){
-//     const res = await fetch("https://api.themoviedb.org/3/trending/all/day?api_key=0c75b9faeb39691a7d8e7af98ee5f303",{
-//         cache: "no-store"
-//     });
-//     const data = await res.json();
-//     return data;
-// }
-
-// 이전 방식
-// export async function getServerSideProps(){
-//     // Fetch data from external API
-//     const res = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=0c75b9faeb39691a7d8e7af98ee5f303`)
-//     const data = res.data;
-
-//     // Pass data to the page via props
-//     return { props: { data } }
-// }
-
+const Body = styled.div`
+    height: 100vh;
+`
 const Container = styled.div`
     display: flex;
     flex-direction: column; 

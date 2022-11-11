@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Image from 'next/image';
+
 const ItemsList = [
     {id: 0, info: '/img/Netflix_Symbol.png'},
     {id: 1, info: 'TV Shows'},
@@ -37,7 +37,9 @@ const Container = styled.div`
 `
 
 const Item = styled.div`
-
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17.1968px;
 `
 
 const StyledImage = styled.img`
