@@ -1,32 +1,29 @@
 import axios from "axios";
 import { API_KEY } from "../assets/config";
 
-export const getNowPlaying = async () => {
-  const { data } = await axios.get(
-    `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`
-  );
-  return data;
-};
+const BASE_URL = `https://api.themoviedb.org/3/movie/`;
 
-export const getTopRated = async () => {
-  const { data } = await axios.get(
-    `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
-  );
-  return data;
-};
+export const getNowPlaying = `${BASE_URL}/now_playing?api_key=${API_KEY}&language=en-US&page=1`;
+export const getTopRated = `${BASE_URL}/top_rated?api_key=${API_KEY}&language=en-US&page=1`;
+export const getPopular = `${BASE_URL}/popular?api_key=${API_KEY}&language=en-US&page=1`;
+export const getUpComing = `${BASE_URL}/upcoming?api_key=${API_KEY}&language=en-US&page=1`;
+export const getTopSearches = `${BASE_URL}/top_rated?api_key=${API_KEY}`;
 
-export const getPopular = async () => {
-  const { data } = await axios.get(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
-  );
-  return data;
-};
-
-export const getUpComing = async () => {
-  const { data } = await axios.get(
-    `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
-  );
-  return data;
-};
-
-export const getTopSearches = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`;
+// const { data } = await axios.get(
+//   `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
+// );
+// return data;
+// };
+// export const getPopular = async () => {
+// const { data } = await axios.get(
+//   `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+// );
+// return data;
+// };
+// export const getUpComing = async () => {
+// const { data } = await axios.get(
+//   `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
+// );
+// return data;
+// };
+// export const getTopSearches = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`;
