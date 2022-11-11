@@ -1,3 +1,5 @@
+export interface CustomPageProps {}
+
 export interface IFooter {
   alt: string;
   name: string;

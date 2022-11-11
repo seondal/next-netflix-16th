@@ -1,12 +1,17 @@
 import "../../styles/globals.css";
 import type { AppProps } from "next/app";
 import React from "react";
-import Layout from "../components/common/Layout";
+import { CustomPageProps } from "../interface";
+import Footer from "../components/common/Footer";
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+  Component,
+  pageProps,
+}: AppProps<CustomPageProps>) {
   return (
-    <Layout>
+    <>
       <Component {...pageProps} />
-    </Layout>
+      <Footer />
+    </>
   );
 }
