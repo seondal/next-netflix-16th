@@ -7,11 +7,9 @@ import { use } from "react";
 import { useNowPlaying } from "../../hooks/api/movie";
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import MovieList from '../../components/home/MovieList'
+import TextInfo from "../../components/home/TextInfo";
 
 export default function Home(){
-
-    // const {data:IData} = await getData();
-    // console.log(data);
 
     const { data : nowPlayingMovies, isLoading } = useNowPlaying();
 
@@ -19,7 +17,7 @@ export default function Home(){
 
     return (
         <Container>
-            home
+            <TextInfo name={"nowPlaying"}/>
             <MovieList movies={nowPlayingMovies.results}/>
             <Footer/>
         </Container>
@@ -61,10 +59,9 @@ export const getServerSideProps = async () => {
 // }
 
 const Container = styled.div`
-    background: blue;
     display: flex;
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
     width: 375px;
-
 `
