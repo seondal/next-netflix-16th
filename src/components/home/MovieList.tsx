@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 import Image from 'next/image'
 
 export default function MovieList({movies, isPreview}:any){
-    console.log(isPreview);
     return(
         <Container>
             {

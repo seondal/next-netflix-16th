@@ -8,6 +8,7 @@ import { dehydrate, QueryClient } from '@tanstack/react-query';
 import MovieList from '../../components/home/MovieList'
 import TextInfo from "../../components/home/TextInfo";
 import Header from "../../components/common/Header";
+import FirstMovie from "../../components/home/FirstMovie";
 
 export default function Home(){
 
@@ -23,6 +24,7 @@ export default function Home(){
     return (
         <Container>
             <Header/>
+            <FirstMovie movies={upComingMovies.results}/>
             <TextInfo name={"Previews"} isPreview={true}/>
             <MovieList movies={upComingMovies.results} isPreview={true}/>
             <TextInfo name={"Now Playing"} isPreview={false}/>

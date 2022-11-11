@@ -27,3 +27,8 @@ export interface IData{
     total_pages: number;
     total_results: number;
 }
+
+export interface ITextInfo{
+    name: string;
+    isPreview: boolean;
+}

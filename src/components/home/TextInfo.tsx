@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
+import {ITextInfo} from '../../interfaces/interface'
 
-export default function TextInfo({name, isPreview}:any){
-    console.log(isPreview)
+export default function TextInfo({name, isPreview}:ITextInfo){
     return(
         <Container isPreview = {isPreview}>
             {name}
