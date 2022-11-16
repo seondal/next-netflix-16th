@@ -15,7 +15,7 @@ export default function MovieList({ movies, isPreview }: MovieListProps) {
             pathname: `/movies/${m.id}`,
             query: {
               title: m.original_title,
-              poster: m.poster_path,
+              poster: m.backdrop_path,
               overview: m.overview,
             },
           }}
