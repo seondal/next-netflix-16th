@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getImage } from "../../api";
 import { IMovieInfo } from "../../interface";
 
 interface MovieListProps {
@@ -15,7 +16,7 @@ export default function MovieList({ movies, isPreview }: MovieListProps) {
             pathname: `/movies/${m.id}`,
             query: {
               title: m.original_title,
-              poster: m.backdrop_path,
+              backdrop: m.backdrop_path,
               overview: m.overview,
             },
           }}
@@ -24,7 +25,7 @@ export default function MovieList({ movies, isPreview }: MovieListProps) {
         >
           <img
             className={isPreview ? "isCircle" : ""}
-            src={"http://image.tmdb.org/t/p/w500" + m.backdrop_path}
+            src={getImage(m.poster_path)}
             alt={m.title}
           />
         </Link>

@@ -3,8 +3,8 @@ import BackgroundPoster from "../../components/common/BackgroundPoster";
 
 export default function MovieDetail() {
   const router = useRouter();
-  const { title, poster, overview } = router.query;
-  const backdropURL = `${poster}`;
+  const { title, backdrop, overview } = router.query;
+  const backdropURL = `${backdrop}`;
 
   return (
     <>

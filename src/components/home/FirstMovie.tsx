@@ -12,7 +12,7 @@ export default function FirstMovie({ movies }: any) {
   return (
     <>
       <div className="container">
-        <BackgroundPoster url={movies[rand_0_len].backdrop_path}>
+        <BackgroundPoster url={movies[rand_0_len].poster_path}>
           <Header />
         </BackgroundPoster>
         <div className="middle-item">
