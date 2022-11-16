@@ -1,8 +1,10 @@
-import { getTopSearches } from "../api";
+import { getSearchMovies, getSearchMovies_test } from "../api";
 import { IMovieInfo } from "../interface";
 import Link from "next/link";
 import SearchList from "../components/search/SearchList";
 import {useState, useEffect} from 'react';
+import { useRecoilState } from 'recoil';
+import { searchState } from '../atom';
 
 interface SearchProps {
   topSearchesMovies: IMovieInfo[];
@@ -17,12 +19,17 @@ export default function Search({ topSearchesMovies }: SearchProps) {
     setSearch(e.target.value);
   }
 
-  const filterData : IMovieInfo[] = searchData.filter((movie) => {
-    // console.log('m:', movie.title.replace(" ","").toLocaleLowerCase());
-    // console.log('se:',search.replace(" ","").toLocaleLowerCase());
-    let result = movie.title.replace(" ","").toLocaleLowerCase().includes(search.toLocaleLowerCase());
-    return result;
-  })
+  useEffect(() => {
+    async function fetchData() {
+      // You can await here
+      const response = await (await fetch(getSearchMovies(search))).json();
+      const data = response.results;
+      setSearchData(data);
+    }
+    if(search){
+      fetchData();
+    }
+  }, [search]); 
 
   return (
     <>
@@ -30,13 +37,13 @@ export default function Search({ topSearchesMovies }: SearchProps) {
       type="text" value={search} onChange={onChange}
       placeholder="Search for a show, movie, genre, e.t.c." />
       <h2>Top Searches</h2>
-      <SearchList movies={filterData}/>
+      <SearchList movies={searchData}/>
     </>
   );
 }
 
 export async function getServerSideProps() {
-  const topSearchesMoviesResponse = await (await fetch(getTopSearches)).json();
+  const topSearchesMoviesResponse = await (await fetch(getSearchMovies_test)).json();
   const topSearchesMovies = topSearchesMoviesResponse.results;
 
   return {
