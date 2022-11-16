@@ -3,8 +3,6 @@ import { IMovieInfo } from "../interface";
 import Link from "next/link";
 import SearchList from "../components/search/SearchList";
 import {useState, useEffect} from 'react';
-import { useRecoilState } from 'recoil';
-import { searchState } from '../atom';
 
 interface SearchProps {
   topSearchesMovies: IMovieInfo[];
