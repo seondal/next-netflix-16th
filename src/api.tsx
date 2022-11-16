@@ -13,3 +13,8 @@ export const getTopSearches = `${BASE_URL}/movie/popular?api_key=${API_KEY}&lang
 export function getSearchMovies(search: string) {
   return `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${search}`;
 }
+
+// image
+export function getImage(url: string) {
+  return `http://image.tmdb.org/t/p/w500${url}`;
+}

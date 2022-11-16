@@ -1,13 +1,15 @@
 import { useRouter } from "next/router";
+import BackgroundPoster from "../../components/common/BackgroundPoster";
 
 export default function MovieDetail() {
   const router = useRouter();
   const { title, poster, overview } = router.query;
-  const backdropURL = `https://image.tmdb.org/t/p/w500/${poster}`;
+  const backdropURL = `${poster}`;
+
   return (
     <>
       <div className="container">
-        <div className="backdrop"></div>
+        <BackgroundPoster url={backdropURL} />
         <div className="contents">
           <button>▶️ Play</button>
           <h2>{title}</h2>
@@ -18,21 +20,6 @@ export default function MovieDetail() {
         .container {
           display: flex;
           flex-direction: column;
-        }
-        .backdrop {
-          object-fit: cover;
-          height: 415px;
-          width: 375px;
-          margin-bottom: 13px;
-          background-size: cover;
-          background-position: center;
-          background-image: linear-gradient(
-              180deg,
-              rgba(0, 0, 0, 0.45) 0%,
-              rgba(0, 0, 0, 0) 87.26%,
-              #000000 100%
-            ),
-            url(${backdropURL});
         }
         .contents {
           padding: 13px 36px;
