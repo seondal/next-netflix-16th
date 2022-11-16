@@ -6,11 +6,12 @@ interface SearchListProps {
 }
 
 
-export default function SearchList(movies : SearchListProps){
+export default function SearchList({movies} : SearchListProps){
+
     return(
         <>
             {!movies && <h4>Loading...</h4>}
-            {/* {movies?.map((movie : any) => (
+            {movies.map((movie : IMovieInfo) => (
                 <Link
                 href={{
                     pathname: `/movies/${movie.id}`,
@@ -31,7 +32,7 @@ export default function SearchList(movies : SearchListProps){
                     <h4>{movie.original_title}</h4>
                 </div>
                 </Link>
-            ))} */}
+            ))}
           </>
     )
 }

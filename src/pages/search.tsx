@@ -17,8 +17,10 @@ export default function Search({ topSearchesMovies }: SearchProps) {
     setSearch(e.target.value);
   }
 
-  const filterData = searchData.filter((movie) => {
-    let result = movie.title.replace(" ","").toLocaleLowerCase().includes(search.replace(" ","").toLocaleLowerCase());
+  const filterData : IMovieInfo[] = searchData.filter((movie) => {
+    // console.log('m:', movie.title.replace(" ","").toLocaleLowerCase());
+    // console.log('se:',search.replace(" ","").toLocaleLowerCase());
+    let result = movie.title.replace(" ","").toLocaleLowerCase().includes(search.toLocaleLowerCase());
     return result;
   })
 
@@ -28,30 +30,7 @@ export default function Search({ topSearchesMovies }: SearchProps) {
       type="text" value={search} onChange={onChange}
       placeholder="Search for a show, movie, genre, e.t.c." />
       <h2>Top Searches</h2>
-      <SearchList movies={topSearchesMovies}/>
-      {!filterData && <h4>Loading...</h4>}
-      {filterData?.map((movie) => (
-        <Link
-          href={{
-            pathname: `/movies/${movie.id}`,
-            query: {
-              title: movie.original_title,
-              poster: movie.poster_path,
-              overview: movie.overview,
-            },
-          }}
-          as={`/movies/${movie.id}`}
-          key={movie.id}
-        >
-          <div key={movie.id}>
-            <img
-              style={{ width: "10px" }}
-              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-            />
-            <h4>{movie.original_title}</h4>
-          </div>
-        </Link>
-      ))}
+      <SearchList movies={filterData}/>
     </>
   );
 }
