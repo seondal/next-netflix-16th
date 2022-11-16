@@ -1,4 +1,4 @@
-import { getSearchMovies, getSearchMovies_test } from "../api";
+import { getSearchMovies, getTopSearches } from "../api";
 import { IMovieInfo } from "../interface";
 import Link from "next/link";
 import SearchList from "../components/search/SearchList";
@@ -41,7 +41,7 @@ export default function Search({ topSearchesMovies }: SearchProps) {
 }
 
 export async function getServerSideProps() {
-  const topSearchesMoviesResponse = await (await fetch(getSearchMovies_test)).json();
+  const topSearchesMoviesResponse = await (await fetch(getTopSearches)).json();
   const topSearchesMovies = topSearchesMoviesResponse.results;
 
   return {
