@@ -27,18 +27,12 @@ export default function Footer() {
         .container {
           position: fixed;
           background: black;
-
-          // 중앙 정렬
-          left: 50%;
-          transform: translate(-50%, 0);
-
           bottom: 0;
-
           width: 377px;
           height: 48px;
-
           display: flex;
           justify-content: space-evenly;
+          padding: 8px 0px;
         }
       `}</style>
     </>
