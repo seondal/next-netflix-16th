@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { getImage } from "../../api";
 import { IMovieInfo } from "../../interface";
+import LinktoMovieData from "../common/LinkToMovieData";
 
 interface MovieListProps {
   movies: IMovieInfo[];
@@ -11,24 +11,18 @@ export default function MovieList({ movies, isPreview }: MovieListProps) {
   return (
     <div className="container">
       {movies.map((m: any) => (
-        <Link
-          href={{
-            pathname: `/movies/${m.id}`,
-            query: {
-              title: m.original_title,
-              backdrop: m.backdrop_path,
-              overview: m.overview,
-            },
-          }}
-          as={`/movies/${m.id}`}
-          key={m.id}
+        <LinktoMovieData
+          id={m.id}
+          original_title={m.original_title}
+          backdrop_path={m.backdrop_path}
+          overview={m.overview}
         >
           <img
             className={isPreview ? "isCircle" : ""}
             src={getImage(m.poster_path)}
             alt={m.title}
           />
-        </Link>
+        </LinktoMovieData>
       ))}
       <style jsx>{`
         .container {

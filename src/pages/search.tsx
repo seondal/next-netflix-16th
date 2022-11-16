@@ -1,21 +1,19 @@
 import { getSearchMovies, getTopSearches } from "../api";
 import { IMovieInfo } from "../interface";
-import Link from "next/link";
 import SearchList from "../components/search/SearchList";
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from "react";
 
 interface SearchProps {
   topSearchesMovies: IMovieInfo[];
 }
 
 export default function Search({ topSearchesMovies }: SearchProps) {
-
   const [searchData, setSearchData] = useState(topSearchesMovies);
   const [search, setSearch] = useState("");
 
-  const onChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
-  }
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -24,18 +22,21 @@ export default function Search({ topSearchesMovies }: SearchProps) {
       const data = response.results;
       setSearchData(data);
     }
-    if(search){
+    if (search) {
       fetchData();
     }
-  }, [search]); 
+  }, [search]);
 
   return (
     <>
-      <input 
-      type="text" value={search} onChange={onChange}
-      placeholder="Search for a show, movie, genre, e.t.c." />
+      <input
+        type="text"
+        value={search}
+        onChange={onChange}
+        placeholder="Search for a show, movie, genre, e.t.c."
+      />
       <h2>Top Searches</h2>
-      <SearchList movies={searchData}/>
+      <SearchList movies={searchData} />
     </>
   );
 }

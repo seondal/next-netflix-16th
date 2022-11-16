@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { IMovieInfo } from "../../interface";
 import { GrCirclePlay } from "react-icons/gr";
 import { getImage } from "../../api";
+import LinktoMovieData from "../common/LinkToMovieData";
 
 interface SearchListProps {
   movies: IMovieInfo[];
@@ -11,36 +11,26 @@ export default function SearchList({ movies }: SearchListProps) {
   return (
     <>
       {!movies && <h4>Loading...</h4>}
-      {movies?.map((movie: IMovieInfo) =>
-        movie.backdrop_path == null ? (
-          <div key={movie.id}></div>
-        ) : (
-          <Link
-            href={{
-              pathname: `/movies/${movie.id}`,
-              query: {
-                title: movie.original_title,
-                poster: movie.poster_path,
-                overview: movie.overview,
-              },
-            }}
-            as={`/movies/${movie.id}`}
-            key={movie.id}
-          >
-            <div key={movie.id}>
-              <div className="container">
-                <img className="poster" src={getImage(movie.backdrop_path)} />
-                <div className="title-box">
-                  <div className="title">{movie.original_title}</div>
-                  <div className="play">
-                    <GrCirclePlay />
-                  </div>
+      {movies?.map((movie: IMovieInfo) => (
+        <LinktoMovieData
+          id={movie.id}
+          original_title={movie.original_title}
+          backdrop_path={movie.backdrop_path}
+          overview={movie.overview}
+        >
+          <div key={movie.id}>
+            <div className="container">
+              <img className="poster" src={getImage(movie.poster_path)} />
+              <div className="title-box">
+                <div className="title">{movie.original_title}</div>
+                <div className="play">
+                  <GrCirclePlay />
                 </div>
               </div>
             </div>
-          </Link>
-        )
-      )}
+          </div>
+        </LinktoMovieData>
+      ))}
       <style jsx>{`
         .container {
           display: flex;
