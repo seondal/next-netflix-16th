@@ -11,18 +11,20 @@ export default function MovieList({ movies, isPreview }: MovieListProps) {
   return (
     <div className="container">
       {movies.map((m: any) => (
-        <LinktoMovieData
-          id={m.id}
-          original_title={m.original_title}
-          backdrop_path={m.backdrop_path}
-          overview={m.overview}
-        >
-          <img
-            className={isPreview ? "isCircle" : ""}
-            src={getImage(m.poster_path)}
-            alt={m.title}
-          />
-        </LinktoMovieData>
+        <div key={m.id}>
+          <LinktoMovieData
+            id={m.id}
+            original_title={m.original_title}
+            backdrop_path={m.backdrop_path}
+            overview={m.overview}
+          >
+            <img
+              className={isPreview ? "isCircle" : ""}
+              src={getImage(m.poster_path)}
+              alt={m.title}
+            />
+          </LinktoMovieData>
+        </div>
       ))}
       <style jsx>{`
         .container {

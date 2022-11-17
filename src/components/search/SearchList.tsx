@@ -12,24 +12,26 @@ export default function SearchList({ movies }: SearchListProps) {
     <>
       {!movies && <h4>Loading...</h4>}
       {movies?.map((movie: IMovieInfo) => (
-        <LinktoMovieData
-          id={movie.id}
-          original_title={movie.original_title}
-          backdrop_path={movie.backdrop_path}
-          overview={movie.overview}
-        >
-          <div key={movie.id}>
-            <div className="container">
-              <img className="poster" src={getImage(movie.poster_path)} />
-              <div className="title-box">
-                <div className="title">{movie.original_title}</div>
-                <div className="play">
-                  <GrCirclePlay />
+        <div key={movie.id}>
+          <LinktoMovieData
+            id={movie.id}
+            original_title={movie.original_title}
+            backdrop_path={movie.backdrop_path}
+            overview={movie.overview}
+          >
+            <div key={movie.id}>
+              <div className="container">
+                <img className="poster" src={getImage(movie.poster_path)} />
+                <div className="title-box">
+                  <div className="title">{movie.original_title}</div>
+                  <div className="play">
+                    <GrCirclePlay />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </LinktoMovieData>
+          </LinktoMovieData>
+        </div>
       ))}
       <style jsx>{`
         .container {
