@@ -4,8 +4,13 @@ import Info from "../../../public/img/Header/Info.png";
 import MyList from "../../../public/img/Header/MyList.png";
 import Header from "../common/Header";
 import BackgroundPoster from "../common/BackgroundPoster";
+import { IMovieInfo } from "../../interface";
 
-export default function FirstMovie({ movies }: any) {
+interface FirstMovieProps {
+  movies: IMovieInfo[];
+}
+
+export default function FirstMovie({ movies }: FirstMovieProps) {
   const len_movies = movies.length;
   const rand_0_len = Math.floor(Math.random() * len_movies);
 

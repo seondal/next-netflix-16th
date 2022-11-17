@@ -10,7 +10,7 @@ interface MovieListProps {
 export default function MovieList({ movies, isPreview }: MovieListProps) {
   return (
     <div className="container">
-      {movies.map((m: any) => (
+      {movies.map((m: IMovieInfo) => (
         <div key={m.id}>
           <LinktoMovieData
             id={m.id}
@@ -40,13 +40,11 @@ export default function MovieList({ movies, isPreview }: MovieListProps) {
           width: 103px;
           height: 161px;
           margin-right: 7px;
-          margin-bottom: 52px;
         }
         .isCircle {
           width: 102px;
           height: 102px;
           border-radius: 50%;
-          margin-bottom: 66px;
         }
       `}</style>
     </div>
