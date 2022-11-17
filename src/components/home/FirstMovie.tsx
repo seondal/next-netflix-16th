@@ -2,7 +2,7 @@ import Image from "next/image";
 import Play from "../../../public/img/Header/Play.png";
 import Info from "../../../public/img/Header/Info.png";
 import MyList from "../../../public/img/Header/MyList.png";
-import Header from "../common/Header";
+import Header from "./Header";
 import BackgroundPoster from "../common/BackgroundPoster";
 import { IMovieInfo } from "../../interface";
 

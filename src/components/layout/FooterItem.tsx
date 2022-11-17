@@ -12,7 +12,7 @@ export default function FooterItem({ alt, name, selected }: IFooter) {
     <>
       <div className="container">
         <button className={selected ? "selected" : ""}>
-          <img alt={alt} src={src} width={25} height={25} />
+          <img alt={alt} src={src} width={20} height={20} />
           <div className="font">{name}</div>
         </button>
       </div>
