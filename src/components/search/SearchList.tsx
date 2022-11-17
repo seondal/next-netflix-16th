@@ -1,7 +1,7 @@
 import { IMovieInfo } from "../../interface";
 import { BiPlayCircle } from "react-icons/bi";
 import { getImage } from "../../api";
-import LinktoMovieData from "../common/LinkToMovieData";
+import LinktoMovieData from "../common/LinktoMovieData";
 import { getScreenWidth } from "../../assets/getScreenWidth";
 
 interface SearchListProps {
