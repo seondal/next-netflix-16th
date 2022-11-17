@@ -11,22 +11,22 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Head>
-        <title>
-          Netflix
-        </title>
+        <title>Netflix</title>
       </Head>
       <div className="container">
         {children}
-        {router.pathname !== "/" && <Footer />}
+        <div className="blank" />
       </div>
+      {router.pathname !== "/" && <Footer />}
       <style jsx>{`
         .container {
-          height: 100vh;
           display: flex;
           flex-direction: column;
           width: 375px;
           justify-contents: flex-start;
-          position: relative;
+        }
+        .blank {
+          height: 50px;
         }
       `}</style>
     </>

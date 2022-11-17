@@ -7,9 +7,8 @@ export default function TextInfo({ name, isPreview }: ITextInfo) {
       <style jsx>{`
         div {
           font-weight: 700;
-          margin-bottom: 14px;
+          margin: 28px 14px 16px 0px;
           font-size: 20.92px;
-          margin-left: 16px;
         }
         .isPreview {
           font-size: 26.75px;

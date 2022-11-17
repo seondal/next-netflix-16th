@@ -1,9 +1,11 @@
 import { useRouter } from "next/router";
 import BackgroundPoster from "../../components/common/BackgroundPoster";
+import TextInfo from "../../components/home/TextInfo";
 
 export default function MovieDetail() {
   const router = useRouter();
   const { title, backdrop, overview } = router.query;
+  const movieTitle = `${title}`;
   const backdropURL = `${backdrop}`;
 
   return (
@@ -12,7 +14,7 @@ export default function MovieDetail() {
         <BackgroundPoster url={backdropURL} />
         <div className="contents">
           <button>▶️ Play</button>
-          <h2>{title}</h2>
+          <TextInfo name={movieTitle} isPreview={true} />
           <div className="overview">{overview}</div>
         </div>
       </div>
@@ -23,7 +25,6 @@ export default function MovieDetail() {
         }
         .contents {
           padding: 13px 36px;
-          min-height: 300px;
         }
         button {
           width: 303px;
