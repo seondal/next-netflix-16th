@@ -2,6 +2,7 @@ import { getSearchMovies, getTopSearches } from "../api";
 import { IMovieInfo } from "../interface";
 import SearchList from "../components/search/SearchList";
 import { useState, useEffect } from "react";
+import TextInfo from "../components/home/TextInfo";
 
 interface SearchProps {
   topSearchesMovies: IMovieInfo[];
@@ -35,7 +36,7 @@ export default function Search({ topSearchesMovies }: SearchProps) {
         onChange={onChange}
         placeholder="Search for a show, movie, genre, e.t.c."
       />
-      <h2>Top Searches</h2>
+      <TextInfo name={"Top Searches"} isPreview={true} />
       <SearchList movies={searchData} />
     </>
   );

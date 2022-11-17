@@ -1,5 +1,5 @@
 import { IMovieInfo } from "../../interface";
-import { GrCirclePlay } from "react-icons/gr";
+import { BiPlayCircle } from "react-icons/bi";
 import { getImage } from "../../api";
 import LinktoMovieData from "../common/LinkToMovieData";
 
@@ -24,9 +24,7 @@ export default function SearchList({ movies }: SearchListProps) {
                 <img className="poster" src={getImage(movie.poster_path)} />
                 <div className="title-box">
                   <div className="title">{movie.original_title}</div>
-                  <div className="play">
-                    <GrCirclePlay />
-                  </div>
+                  <BiPlayCircle size="25" color="#fffff" />
                 </div>
               </div>
             </div>
@@ -45,16 +43,17 @@ export default function SearchList({ movies }: SearchListProps) {
           height: 76px;
         }
         .title-box {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
           background: #424242;
           width: 229px;
           height: 76px;
+          padding-left: 20px;
         }
         .title {
           font-weight: 400;
           font-size: 14.7222px;
-        }
-        .play {
-          size: "25";
         }
       `}</style>
     </>
