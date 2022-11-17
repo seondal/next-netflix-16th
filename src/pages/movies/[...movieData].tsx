@@ -13,7 +13,9 @@ export default function MovieDetail() {
       <div className="container">
         <BackgroundPoster url={backdropURL} />
         <div className="contents">
-          <button>▶️ Play</button>
+          <div className="button-box">
+            <button>▶️ Play</button>
+          </div>
           <TextInfo name={movieTitle} isPreview={true} />
           <div className="overview">{overview}</div>
         </div>
@@ -22,18 +24,25 @@ export default function MovieDetail() {
         .container {
           display: flex;
           flex-direction: column;
+          justify-content: center;
+          margin-bottom: 20px;
         }
-        .contents {
-          padding: 13px 36px;
+        .button-box {
+          display: flex;
+          justify-content: center;
         }
         button {
-          width: 303px;
+          width: 100%;
           height: 45px;
           border-radius: 5.625px;
           background: #c4c4c4;
           color: black;
           font-size: 20.4624px;
         }
+        .contents {
+          padding: 13px 36px;
+        }
+
         .overview {
           font-size: 11px;
           color: rgba(255, 255, 255, 0.83);

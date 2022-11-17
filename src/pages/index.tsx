@@ -1,22 +1,22 @@
 import { useRouter } from "next/router";
 import { useEffect, useRef } from "react";
 import lottie from "lottie-web";
+import { getScreenWidth } from "../assets/getScreenWidth";
 
 export default function Home() {
+  const screenWidth = getScreenWidth();
   const router = useRouter();
 
   const netflixContainer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-
     lottie.loadAnimation({
       container: netflixContainer.current as HTMLDivElement,
-      renderer: 'svg',
+      renderer: "svg",
       loop: false,
-      autoplay:true,
-      animationData:require("../../public/img/netflix-logo.json")
-     
-    })
+      autoplay: true,
+      animationData: require("../../public/img/netflix-logo.json"),
+    });
 
     const timer = setTimeout(() => {
       router.push("/home");
@@ -36,8 +36,8 @@ export default function Home() {
           justify-content: center;
           align-items: center;
         }
-        .item{
-          width: 375px;
+        .item {
+          width: ${screenWidth};
           height: 100%;
           position: fixed;
           z-index: 1000;

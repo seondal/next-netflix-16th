@@ -18,7 +18,6 @@ export default function BackgroundPoster({
         div {
           object-fit: cover;
           height: 415px;
-          width: 375px;
           margin-bottom: 13px;
           background-size: cover;
           background-position: center;

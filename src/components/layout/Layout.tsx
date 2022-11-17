@@ -1,12 +1,14 @@
 import { useRouter } from "next/router";
 import Footer from "./Footer";
 import Head from "next/head";
+import { getScreenWidth } from "../../assets/getScreenWidth";
 
 interface LayoutProps {
   children?: JSX.Element;
 }
 
 export default function Layout({ children }: LayoutProps) {
+  const screenWidth = getScreenWidth();
   const router = useRouter();
   return (
     <>
@@ -17,13 +19,12 @@ export default function Layout({ children }: LayoutProps) {
         {children}
         <div className="blank" />
       </div>
-      {router.pathname !== "/" && <Footer />}
+      {router.pathname !== "/" && <Footer size={screenWidth} />}
       <style jsx>{`
         .container {
           display: flex;
           flex-direction: column;
-          width: 375px;
-          justify-contents: flex-start;
+          width: ${screenWidth}px;
         }
         .blank {
           height: 50px;

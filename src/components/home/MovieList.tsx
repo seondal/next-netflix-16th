@@ -1,6 +1,6 @@
 import { getImage } from "../../api";
 import { IMovieInfo } from "../../interface";
-import LinktoMovieData from "../common/LinkToMovieData";
+import LinktoMovieData from "../common/LinktoMovieData";
 
 interface MovieListProps {
   movies: IMovieInfo[];
@@ -29,7 +29,6 @@ export default function MovieList({ movies, isPreview }: MovieListProps) {
       <style jsx>{`
         .container {
           display: flex;
-          width: 375px;
           overflow-y: auto;
         }
         .container::-webkit-scrollbar {

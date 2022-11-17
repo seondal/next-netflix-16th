@@ -2,12 +2,15 @@ import { IMovieInfo } from "../../interface";
 import { BiPlayCircle } from "react-icons/bi";
 import { getImage } from "../../api";
 import LinktoMovieData from "../common/LinkToMovieData";
+import { getScreenWidth } from "../../assets/getScreenWidth";
 
 interface SearchListProps {
   movies: IMovieInfo[];
 }
 
 export default function SearchList({ movies }: SearchListProps) {
+  const screenWidth = getScreenWidth();
+
   return (
     <>
       {!movies && <h4>Loading...</h4>}
@@ -34,7 +37,6 @@ export default function SearchList({ movies }: SearchListProps) {
       <style jsx>{`
         .container {
           display: flex;
-          width: 375px;
           margin-bottom: 3px;
         }
         .poster {
@@ -47,7 +49,7 @@ export default function SearchList({ movies }: SearchListProps) {
           align-items: center;
           justify-content: space-between;
           background: #424242;
-          width: 229px;
+          width: ${screenWidth - 146}px;
           height: 76px;
           padding: 0px 11px 0px 25px;
         }
