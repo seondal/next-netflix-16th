@@ -13,9 +13,9 @@ export default function BackgroundPoster({
 
   return (
     <>
-      <div className="image-box">{children}</div>
+      <div className="image_box">{children}</div>
       <style jsx>{`
-        .image-box {
+        div {
           object-fit: cover;
           height: 415px;
           width: 375px;

@@ -9,6 +9,7 @@ export default function TextInfo({ name, isPreview }: ITextInfo) {
           font-weight: 700;
           margin-bottom: 14px;
           font-size: 20.92px;
+          margin-left: 16px;
         }
         .isPreview {
           font-size: 26.75px;
