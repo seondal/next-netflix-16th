@@ -1,3 +1,4 @@
+import { BiSearch, BiX } from "react-icons/bi";
 import { getSearchMovies, getTopSearches } from "../api";
 import { IMovieInfo } from "../interface";
 import SearchList from "../components/search/SearchList";
@@ -30,14 +31,39 @@ export default function Search({ topSearchesMovies }: SearchProps) {
 
   return (
     <>
-      <input
-        type="text"
-        value={search}
-        onChange={onChange}
-        placeholder="Search for a show, movie, genre, e.t.c."
-      />
-      <TextInfo name={"Top Searches"} isPreview={true} />
-      <SearchList movies={searchData} />
+      <div className="container">
+        <div className="search_box">
+          <BiSearch color="#C4C4C4" size={20} />
+          <input
+            type="text"
+            value={search}
+            onChange={onChange}
+            placeholder="Search for a show, movie, genre, e.t.c."
+          />
+          <BiX color="#C4C4C4" size={28} />
+        </div>
+        <TextInfo name={"Top Searches"} isPreview={true} />
+        <SearchList movies={searchData} />
+      </div>
+      <style jsx>{`
+        .search_box {
+          display: flex;
+          height: 50px;
+          padding: 20px;
+          align-items: center;
+          justify-content: space-between;
+          background-color: #424242;
+          margin-top: 50px;
+        }
+        input {
+          width: 100%;
+          height: 50px;
+          border: none;
+          color: #c4c4c4;
+          background-color: #424242;
+          padding: 15px;
+        }
+      `}</style>
     </>
   );
 }

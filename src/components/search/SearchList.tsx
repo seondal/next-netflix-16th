@@ -49,7 +49,7 @@ export default function SearchList({ movies }: SearchListProps) {
           background: #424242;
           width: 229px;
           height: 76px;
-          padding-left: 20px;
+          padding: 0px 11px 0px 25px;
         }
         .title {
           font-weight: 400;
