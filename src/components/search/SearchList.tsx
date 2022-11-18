@@ -15,6 +15,10 @@ export default function SearchList({ movies }: SearchListProps) {
     <>
       {!movies && <h4>Loading...</h4>}
       {movies?.map((movie: IMovieInfo) => (
+        movie.poster_path === null
+        ?
+        <div key={movie.id}></div>
+        :
         <div key={movie.id}>
           <LinktoMovieData
             id={movie.id}
