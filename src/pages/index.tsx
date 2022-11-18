@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 import { useEffect, useRef } from "react";
 import lottie from "lottie-web";
-import { getScreenWidth } from "../assets/getScreenWidth";
+import { GetScreenWidth } from "../assets/getScreenWidth";
 
 export default function Home() {
-  const screenWidth = getScreenWidth();
+  const screenWidth = GetScreenWidth();
   const router = useRouter();
 
   const netflixContainer = useRef<HTMLDivElement>(null);
