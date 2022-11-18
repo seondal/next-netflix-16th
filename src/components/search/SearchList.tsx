@@ -2,14 +2,14 @@ import { IMovieInfo } from "../../interface";
 import { BiPlayCircle } from "react-icons/bi";
 import { getImage } from "../../api";
 import LinktoMovieData from "../common/LinktoMovieData";
-import { getScreenWidth } from "../../assets/getScreenWidth";
+import { GetScreenWidth } from "../../assets/getScreenWidth";
 
 interface SearchListProps {
   movies: IMovieInfo[];
 }
 
 export default function SearchList({ movies }: SearchListProps) {
-  const screenWidth = getScreenWidth();
+  const screenWidth = GetScreenWidth();
 
   return (
     <>

@@ -1,14 +1,14 @@
 import { useRouter } from "next/router";
 import Footer from "./Footer";
 import Head from "next/head";
-import { getScreenWidth } from "../../assets/getScreenWidth";
+import { GetScreenWidth } from "../../assets/getScreenWidth";
 
 interface LayoutProps {
   children?: JSX.Element;
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const screenWidth = getScreenWidth();
+  const screenWidth = GetScreenWidth();
   const router = useRouter();
   return (
     <>
