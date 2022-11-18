@@ -3,10 +3,13 @@ import FooterInfo from "../../assets/FooterInfo.json";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-export default function Footer() {
+interface FooterProps {
+  size: number;
+}
+
+export default function Footer({ size }: FooterProps) {
   const router = useRouter();
   const footerInfo = FooterInfo;
-
   return (
     <>
       <div className="container">
@@ -27,18 +30,12 @@ export default function Footer() {
         .container {
           position: fixed;
           background: black;
-
-          // 중앙 정렬
-          left: 50%;
-          transform: translate(-50%, 0);
-
           bottom: 0;
-
-          width: 377px;
+          width: ${size}px;
           height: 48px;
-
           display: flex;
           justify-content: space-evenly;
+          padding: 8px 0px;
         }
       `}</style>
     </>
