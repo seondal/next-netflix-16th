@@ -29,7 +29,7 @@ export default function FooterItem({ alt, name, selected }: IFooter) {
           color: #8c8787;
         }
         .selected {
-          color: "white";
+          color: white;
         }
         .font {
           font-size: 8.2px;
