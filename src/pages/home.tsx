@@ -21,15 +21,23 @@ export default function Home({
     <>
       <div>
         <FirstMovie movies={upComingMovies} />
-        <TextInfo name={"Previews"} isPreview={true} />
-        <MovieList movies={upComingMovies} isPreview={true} />
-        <TextInfo name={"Now Playing"} isPreview={false} />
-        <MovieList movies={nowPlayingMovies} isPreview={false} />
-        <TextInfo name={"Top Rated"} isPreview={false} />
-        <MovieList movies={topRatedMovies} isPreview={false} />
-        <TextInfo name={"Popular"} isPreview={false} />
-        <MovieList movies={popularMovies} isPreview={false} />
+        <div className="container">
+          <TextInfo name={"Previews"} isPreview={true} />
+          <MovieList movies={upComingMovies} isPreview={true} />
+          <TextInfo name={"Now Playing"} isPreview={false} />
+          <MovieList movies={nowPlayingMovies} isPreview={false} />
+          <TextInfo name={"Top Rated"} isPreview={false} />
+          <MovieList movies={topRatedMovies} isPreview={false} />
+          <TextInfo name={"Popular"} isPreview={false} />
+          <MovieList movies={popularMovies} isPreview={false} />
+        </div>
       </div>
+
+      <style jsx>{`
+        .container {
+          padding: 0px 12px;
+        }
+      `}</style>
     </>
   );
 }
